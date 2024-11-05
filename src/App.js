@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './Components/Hero/Hero';
+import Work from './Components/Hero/Work/Work';
+import Announce from './Components/Announce/Announce';
 
-function App() {
+const App = () => {
+  const [showWork, setShowWork] = useState(false); // State to control Work visibility
+
+  const toggleWork = () => {
+    setShowWork(prevShowWork => !prevShowWork); // Toggles the visibility state
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bigContainer'>
+      <Announce />
+      <Header toggleWork={toggleWork} /> {/* Pass toggle function to Header */}
+      <Work showWork={showWork} /> {/* Pass visibility state to Work */}
+      
     </div>
   );
-}
+};
 
 export default App;
