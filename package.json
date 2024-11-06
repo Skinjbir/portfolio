@@ -9,11 +9,10 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^3.0.1",
     "web-vitals": "^2.1.4"
   },
   "homepage": "https://Skinjbir.github.io/my-app",
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -42,5 +41,4 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.2.0"
   }
-  
 }
