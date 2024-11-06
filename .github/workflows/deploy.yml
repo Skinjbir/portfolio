@@ -1,0 +1,41 @@
+name: Deploy React Portfolio to Azure
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on push to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # specify Node.js version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Build the React app
+      - name: Build React app
+        run: npm run build
+
+      # Deploy to Azure Static Web App
+      - name: Deploy to Azure Static Web App
+        uses: Azure/static-web-apps-deploy-action@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APP_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for the action
+          action: "upload"
+          #### Set the directory to the 'build' folder of React
+          app_location: "/"
+          api_location: ""  # Leave empty for front-end only deployment
+          output_location: "/build"
