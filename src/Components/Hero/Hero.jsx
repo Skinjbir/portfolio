@@ -2,7 +2,6 @@ import React from 'react';
 import './Hero.css';
 import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { MdAlternateEmail } from "react-icons/md";
 
 function Header({ toggleWork }) { // Receive toggleWork as a prop
   return (
